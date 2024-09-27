@@ -1,0 +1,12 @@
+# Bật Rewrite Engine
+RewriteEngine On
+
+# Rewrite rule: Nếu không phải là file hoặc thư mục thực tế
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Thực hiện rewrite URL không có đuôi .html thành file .html tương ứng
+RewriteRule ^([a-zA-Z0-9_-]+)$ $1.html [L,QSA]
+
+# Rewrite phim/slug thành phim.html?slug=slug
+RewriteRule ^phim/([a-zA-Z0-9-_]+)$ phim.html?slug=$1 [L,QSA]

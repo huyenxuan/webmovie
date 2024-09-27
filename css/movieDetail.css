@@ -1,0 +1,46 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.main-ctn {
+    max-width: 1240px;
+}
+
+.card {
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-body {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(15, 16, 17, 0.7);
+    height: 55px;
+}
+
+.card-body button {
+    border: none;
+    border-radius: 20px;
+    outline: none;
+}
+
+tr {
+    border-top: 1px solid #000;
+}
+
+.tb-title {
+    width: 180px;
+}
+
+#content-detail {
+    text-align: justify;
+}
