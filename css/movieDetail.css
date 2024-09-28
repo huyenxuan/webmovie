@@ -41,6 +41,19 @@ tr {
     width: 180px;
 }
 
+.hd-title {
+    width: 100%;
+    background-color: #919191 !important;
+}
+
+/* content movie */
 #content-detail {
     text-align: justify;
+}
+
+/* episodes */
+#episodes button {
+    border: none;
+    margin: 2px;
+    width: 2.1rem;
 }

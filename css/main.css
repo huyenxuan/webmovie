@@ -46,6 +46,11 @@
     margin: auto;
 }
 
+.title {
+    width: 100%;
+    background-color: #919191;
+}
+
 .card {
     height: 300px;
     position: relative;

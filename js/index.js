@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const movieCard = document.createElement('div');
             movieCard.classList.add(...movieClass.split(' ')); // Sử dụng class tương ứng
             movieCard.innerHTML = `
-                <a href="movieDetail.html?slug=${item.slug}">
+                <a href="movieDetail.html?slug=${item.slug}" title="${item.name}">
                     <div class="card position-relative">
                         <img src="${item.poster_url}" class="card-img-top movie-img" alt="${item.name}" loading="lazy">
                         <div class="card-body p-2 w-100">

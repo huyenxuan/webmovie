@@ -5,14 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return params.get('slug');
     }
 
-    const slug = getSlugFromUrl(); // Lấy slug từ URL
+    const slug = getSlugFromUrl();
 
     if (slug) {
-        // Gọi API để lấy chi tiết phim dựa trên slug
         fetch(`https://phim.nguonc.com/api/film/${slug}`)
             .then(response => response.json())
             .then(data => {
                 displayMovieDetails(data.movie);
+                displayEpisodes(data.movie.episodes);
             })
             .catch(error => {
                 console.error('Error fetching movie details:', error);
@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Hàm hiển thị chi tiết phim trong HTML
     function displayMovieDetails(movie) {
+        document.querySelector('title').textContent = movie.name
         document.getElementById('movie-name').textContent = movie.name || 'Đang cập nhật';
         document.querySelector('.card img').src = movie.poster_url || 'Đang cập nhật';
         document.getElementById('total_episodes').textContent = movie.total_episodes + ' tập' || 'Đang cập nhật';
@@ -41,4 +42,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.getElementById('loading').style.display = 'none';
     }
+
+    // Hàm hiển thị danh sách tập phim và server
+    function displayEpisodes(episodes) {
+        const episodesContainer = document.getElementById('episodes');
+        // duyệt server
+        episodes.forEach((server) => {
+            const serverTitle = document.createElement('h4');
+            serverTitle.textContent = `${server.server_name}`;
+            serverTitle.classList.add('mt-4');
+            episodesContainer.appendChild(serverTitle);
+
+            // duyệt các tập phim trong từng server
+            server.items.forEach(episode => {
+                const episodeElement = document.createElement('button');
+                episodeElement.classList.add('p-2', 'border-none', 'bg-primary-subtle');
+                episodeElement.textContent = `${episode.name}`;
+
+                episodeElement.addEventListener('click', () => {
+                    document.getElementById('loading').style.display = 'flex';
+
+                    const iframe = document.querySelector('iframe');
+                    iframe.src = episode.embed;
+
+                    iframe.onload = () => {
+                        document.getElementById('loading').style.display = 'none';
+                    };
+                });
+                episodesContainer.appendChild(episodeElement);
+            });
+        });
+    }
+
+    // xử lý click button xem phim
+    const btnWatchMovie = document.querySelector('.card button');
+    const watchMovie = document.getElementById('watch-movie');
+    btnWatchMovie.addEventListener('click', () => {
+        watchMovie.scrollIntoView({ behavior: "smooth" })
+    });
+
 });
