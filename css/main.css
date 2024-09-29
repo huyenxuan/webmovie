@@ -80,3 +80,10 @@
     border-end-end-radius: 5px;
     color: white;
 }
+
+@media (min-width: 1100px) and (max-width:1199px) {
+    .col-lg-5-custom {
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+}

@@ -38,7 +38,7 @@ tr {
 }
 
 .tb-title {
-    width: 180px;
+    width: 150px;
 }
 
 .hd-title {
@@ -56,4 +56,10 @@ tr {
     border: none;
     margin: 2px;
     width: 2.1rem;
+}
+
+@media (max-width: 600px) {
+    .left {
+        text-align: -webkit-center;
+    }
 }

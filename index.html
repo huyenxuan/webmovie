@@ -15,212 +15,29 @@
             }
         }
     </style>
+    <script>
+        function includeHTML(file, elementId) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(elementId).innerHTML = data;
+                })
+                .catch(error => console.error('Error loading the file:', error))
+        }
+        window.onload = function () {
+            includeHTML('header.html', 'header');
+            includeHTML('footer.html', 'footer');
+        }
+    </script>
 </head>
 
 <body>
     <div id="loading">
         <img src="assets/loading.gif" alt="">
     </div>
+
     <!-- header -->
-    <div class="header">
-        <header>
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="index">
-                        <img src="assets/img/logo.png" style="width: 100%;" alt="">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-5">
-                            <li class="nav-item">
-                                <a class="nav-link fs-5 active" aria-current="page" href="#">Phim bộ</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link fs-5" href="">Phim lẻ</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link fs-5 dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Thể loại
-                                </a>
-                                <ul class="dropdown-menu flex-wrap">
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">Phim cổ trang</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">Phim Hành động</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">Phim phiêu lưu</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">Phim hoạt hình</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">Phim hài</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">Phim hình sự</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">Phim tài liệu</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">Phim chính kịch</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">Phim gia đình</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">Phim giả tưởng</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">Phim kinh dị</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">Phim nhạc</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">Phim bí ẩn</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">Phim lãng mạn</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">KH viễn tưởng</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">Phim gay cấn</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">Phim Chiến tranh</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">Phim tâm lý</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">Phim tình cảm</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">Phim miền tây</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">Phim 18+</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link fs-5 dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Quốc gia
-                                </a>
-                                <ul class="dropdown-menu flex-wrap">
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">phim việt nam</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">phim trung quốc</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">phim hồng kông</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">phim đài loan</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">phim hàn quốc</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">phim nhật bản</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">phim thái lan</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">phim âu mỹ</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">phim anh</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">phim indonesia</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">phim pháp</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">phim nga</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">phim hà lan</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">phim philippines</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6 text-capitalize" href="#">phim ấn độ</a>
-                                    </li>
-                                    <li class="w-50">
-                                        <a class="dropdown-item fs-6" href="#">Quốc gia khác</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link fs-5 dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Năm
-                                </a>
-                                <ul class="dropdown-menu flex-wrap year">
-                                    <li class="w-25">
-                                        <a class="dropdown-item fs-6" href="#">2024</a>
-                                    </li>
-                                    <li class="w-25">
-                                        <a class="dropdown-item fs-6" href="#">2023</a>
-                                    </li>
-                                    <li class="w-25">
-                                        <a class="dropdown-item fs-6" href="#">2022</a>
-                                    </li>
-                                    <li class="w-25">
-                                        <a class="dropdown-item fs-6" href="#">2021</a>
-                                    </li>
-                                    <li class="w-25">
-                                        <a class="dropdown-item fs-6" href="#">2020</a>
-                                    </li>
-                                    <li class="w-25">
-                                        <a class="dropdown-item fs-6" href="#">2019</a>
-                                    </li>
-                                    <li class="w-25">
-                                        <a class="dropdown-item fs-6" href="#">2018</a>
-                                    </li>
-                                    <li class="w-25">
-                                        <a class="dropdown-item fs-6" href="#">2017</a>
-                                    </li>
-                                    <li class="w-25">
-                                        <a class="dropdown-item fs-6" href="#">2016</a>
-                                    </li>
-                                    <li class="w-25">
-                                        <a class="dropdown-item fs-6" href="#">2015</a>
-                                    </li>
-                                    <li class="w-25">
-                                        <a class="dropdown-item fs-6" href="#">2014</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <form class="d-flex w-50 justify-content-end" role="search">
-                            <input class="form-control me-2 w-50" type="search" placeholder="Search"
-                                aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
-                    </div>
-                </div>
-            </nav>
-        </header>
-    </div>
+    <div id="header"></div>
 
     <!-- main -->
     <div class="main">
@@ -325,22 +142,7 @@
     </div>
 
     <!-- footer -->
-    <div class="footer">
-        <footer>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="assets/img/logo.png" style="width: 100%;" alt="" style="width: 100%;">
-                    </div>
-                    <div class="col-9">
-                        <p class="">Tận hưởng trải nghiệm xem phim mới nhất miễn phí ngay tại phimmoi và dành
-                            thời gian thư giãn chill cùng gia đình và bạn
-                            bè. Với một thư viện phim phong phú</p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </div>
+    <div id="footer"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"

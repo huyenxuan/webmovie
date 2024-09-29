@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const timestamp = new Date().getTime();
-    const newMovieClass = 'col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2 mb-4 p-2 col-xl-5-custom';
+    const newMovieClass = 'col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2 mb-4 p-2 col-lg-5-custom';
     const cateMovieClass = 'col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3 mb-4 p-2';
     const maxMovies = 12;
 
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const movieCard = document.createElement('div');
             movieCard.classList.add(...movieClass.split(' ')); // Sử dụng class tương ứng
             movieCard.innerHTML = `
-                <a href="movieDetail.html?slug=${item.slug}" title="${item.name}">
+                <a href="chitiet.html?slug=${item.slug}" title="${item.name}">
                     <div class="card position-relative">
                         <img src="${item.poster_url}" class="card-img-top movie-img" alt="${item.name}" loading="lazy">
                         <div class="card-body p-2 w-100">
