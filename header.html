@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
-                <img src="assets/img/logo.png" style="width: 100%;" alt="">
+                <img src="assets/img/logo.png" style="width: 100%;" alt="" loading="lazy">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -15,7 +15,7 @@
                         <a class="nav-link fs-5" aria-current="page" href="danhmuc.html?slug=phim-bo">Phim bộ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fs-5" href="danhmuc.html?slug=phim-bo">Phim lẻ</a>
+                        <a class="nav-link fs-5" href="danhmuc.html?slug=phim-le">Phim lẻ</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link fs-5 dropdown-toggle" href="" role="button" data-bs-toggle="dropdown"
@@ -81,7 +81,7 @@
                             </li>
                             <li class="w-50">
                                 <a class="dropdown-item fs-6 text-capitalize"
-                                    href="theloai.html?slug=khoa-hoc-vien-tuong">KH viễn tưởng</a>
+                                    href="theloai.html?slug=khoa-hoc-vien-tuong">Phim KHVT</a>
                             </li>
                             <li class="w-50">
                                 <a class="dropdown-item fs-6 text-capitalize" href="theloai.html?slug=gay-can">Phim gay
@@ -220,10 +220,22 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="d-flex w-50 justify-content-end" role="search">
-                    <input class="form-control me-2 w-50" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex w-50 justify-content-end" id="searchForm" action="">
+                    <input class="form-control me-2 w-50" id="searchInput" placeholder="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        document.getElementById('searchForm').addEventListener('submit', function (event) {
+                            event.preventDefault(); // Ngăn chặn submit form mặc định
+                            const keyword = document.getElementById('searchInput').value.trim(); // Lấy giá trị từ input
+                            if (keyword) {
+                                // Chuyển hướng đến trang timkiem.html với từ khóa
+                                window.location.href = `timkiem.html?keyword=${encodeURIComponent(keyword)}`;
+                            }
+                        });
+                    });
+                </script>
             </div>
         </div>
     </nav>

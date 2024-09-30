@@ -48,6 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hàm hiển thị danh sách tập phim và server
     function displayEpisodes(episodes) {
         const episodesContainer = document.getElementById('episodes');
+        let isFirstEpisode = true; // Đánh dấu tập đầu tiên
+
         // Duyệt qua các server
         episodes.forEach((server) => {
             const serverTitle = document.createElement('h5');
@@ -58,13 +60,34 @@ document.addEventListener('DOMContentLoaded', () => {
             // Duyệt qua các tập phim trong từng server
             server.items.forEach(episode => {
                 const episodeElement = document.createElement('button');
-                episodeElement.classList.add('p-2', 'border-none', 'bg-primary-subtle');
+                episodeElement.classList.add('p-2', 'border-none');
+
+                // Nếu là tập đầu tiên của server đầu tiên, thêm class bg-warning
+                if (isFirstEpisode) {
+                    episodeElement.classList.add('bg-warning');
+                    isFirstEpisode = false;
+                } else {
+                    episodeElement.classList.add('bg-primary-subtle');
+                }
+
                 episodeElement.textContent = `${episode.name}`;
                 episodeElement.setAttribute('title', `Tập ${episode.name}`);
 
                 episodeElement.addEventListener('click', () => {
                     document.getElementById('loading').style.display = 'flex';
 
+                    // Đổi màu của tất cả các button về trạng thái ban đầu
+                    const allButtons = episodesContainer.querySelectorAll('button');
+                    allButtons.forEach(btn => {
+                        btn.classList.remove('bg-warning');
+                        btn.classList.add('bg-primary-subtle');
+                    });
+
+                    // Đổi màu của button được nhấn
+                    episodeElement.classList.remove('bg-primary-subtle');
+                    episodeElement.classList.add('bg-warning');
+
+                    // Cập nhật iframe với tập phim mới
                     const iframe = document.querySelector('iframe');
                     iframe.src = episode.embed;
 
@@ -76,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         document.getElementById('loading').style.display = 'none';
                     };
                 });
+
                 episodesContainer.appendChild(episodeElement);
             });
         });

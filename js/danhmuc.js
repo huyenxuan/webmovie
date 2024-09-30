@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    window.location.href = `index.html`;
     const movieClass = 'col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2 mb-4 p-2 col-lg-5-custom';
     const moviesPerPage = 30; // Số phim muốn hiển thị mỗi trang
     const apiMoviesPerPage = 10; // Số phim API trả về mỗi trang
@@ -21,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let promises = [];
             for (let i = 1; i <= requiredApiPages; i++) {
                 const apiPage = (page - 1) * requiredApiPages + i; // Tính trang API cần gọi
-                promises.push(fetch(`https://phim.nguonc.com/api/films/the-loai/${slug}?page=${apiPage}`));
+                promises.push(fetch(`https://phim.nguonc.com/api/films/danh-sach/${slug}?page=${apiPage}`));
             }
 
             // Fetch tất cả các trang API cần thiết
@@ -37,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     renderMovies(allMovies.slice(0, moviesPerPage), targetElement, movieClass); // Hiển thị 30 phim
                     renderPagination(totalPage, currentPage);
                     document.querySelector('title').textContent = 'Phim ' + dataArray[0].cat.name;
-                    document.querySelector('.movie .title h3').textContent = 'Thể loại phim ' + dataArray[0].cat.name;
+                    document.querySelector('.movie .title h3').textContent = 'Danh mục ' + dataArray[0].cat.name;
                 })
                 .catch(error => {
                     console.error('Error fetching movies:', error);
