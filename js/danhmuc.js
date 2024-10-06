@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    window.location.href = `index.html`;
     const movieClass = 'col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2 mb-4 p-2 col-lg-5-custom';
     const moviesPerPage = 30; // Số phim muốn hiển thị mỗi trang
     const apiMoviesPerPage = 10; // Số phim API trả về mỗi trang

@@ -220,22 +220,11 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="d-flex w-50 justify-content-end" id="searchForm" action="">
-                    <input class="form-control me-2 w-50" id="searchInput" placeholder="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                <form class="d-flex w-50 justify-content-end" id="formSearch">
+                    <input class="form-control me-2 w-50" id="inputSearch" placeholder="Search" type="text">
+                    <button onclick="searchMovie()" class="btn btn-outline-success" id="buttonSearch"
+                        type="submit">Search</button>
                 </form>
-                <script>
-                    document.addEventListener('DOMContentLoaded', function () {
-                        document.getElementById('searchForm').addEventListener('submit', function (event) {
-                            event.preventDefault(); // Ngăn chặn submit form mặc định
-                            const keyword = document.getElementById('searchInput').value.trim(); // Lấy giá trị từ input
-                            if (keyword) {
-                                // Chuyển hướng đến trang timkiem.html với từ khóa
-                                window.location.href = `timkiem.html?keyword=${encodeURIComponent(keyword)}`;
-                            }
-                        });
-                    });
-                </script>
             </div>
         </div>
     </nav>
