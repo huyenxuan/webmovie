@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayMovieDetails(movie) {
         document.querySelector('title').textContent = movie.name;
         document.getElementById('movie-name').textContent = movie.name || 'Đang cập nhật';
-        document.querySelector('.card img').src = movie.poster_url || 'Đang cập nhật';
+        document.querySelector('.card img').src = movie.thumb_url || 'Đang cập nhật';
         document.getElementById('total_episodes').textContent = movie.total_episodes + ' tập' || 'Đang cập nhật';
         document.getElementById('time').textContent = movie.time || 'Đang cập nhật';
         document.getElementById('quality').textContent = movie.quality || 'Đang cập nhật';

@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 movieCard.innerHTML = `
                 <a href="chitiet.html?slug=${item.slug}" title="${item.name}">
                     <div class="card position-relative">
-                        <img src="${item.poster_url}" class="card-img-top movie-img" alt="${item.name}" loading="lazy">
+                        <img src="${item.thumb_url}" class="card-img-top movie-img" alt="${item.name}" loading="lazy">
                         <div class="card-body p-2 w-100">
                             <h5 class="card-title fs-6 text-light movie-name">${item.name}</h5>
                         </div>
@@ -102,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 paginationButton.onclick = function () {
                     document.getElementById('loading').style.display = 'flex';
                     fetchMovies(movieList, movieClass, i);
+
                 };
 
                 if (i === currentPage) {
